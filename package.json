@@ -1,0 +1,31 @@
+{
+  "name": "video-dir-streaming",
+  "version": "1.0.0",
+  "description": "Streaming Directori",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jerosoler/video-dir-streaming.git"
+  },
+  "keywords": [
+    "video",
+    "streaming",
+    "dir"
+  ],
+  "author": "Jero Soler",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2",
+    "find": "^0.2.7",
+    "jade": "^1.11.0",
+    "mz": "^2.7.0",
+    "path": "^0.12.7",
+    "video-stream": "^1.2.0",
+    "video.js": "^6.4.0",
+    "videojs-playlist": "^4.1.0",
+    "videojs-playlist-ui": "^3.3.0"
+  }
+}

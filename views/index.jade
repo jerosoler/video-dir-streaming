@@ -1,0 +1,32 @@
+html
+  head
+    title
+    meta(charset='UTF-8')
+    meta(content='')
+    style.
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css', integrity='sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb', crossorigin='anonymous')
+    link(href='/video.js/dist/video-js.css', rel='stylesheet')
+    link(href='/videojs-playlist-ui/dist/videojs-playlist-ui.vertical.css', rel='stylesheet')
+  body
+    .container
+      .row
+        .col-md-7
+          video#video.video-js(width='640', height='480', controls='')
+        .col-md-5(style='max-height: 480px; overflow:auto;')
+          .vjs-playlist
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js', integrity='sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh', crossorigin='anonymous')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js', integrity='sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ', crossorigin='anonymous')
+    script(src='/video.js/dist/video.js')
+    script(src='/videojs-playlist/dist/videojs-playlist.js')
+    script(src='/videojs-playlist-ui/dist/videojs-playlist-ui.js')
+    script.
+      $.get( "/files", function( data ) {
+      var player = videojs('video');
+      var lista = [];
+      for(i = 0; i < data.length; i++) {
+      lista.push({ name: data[i], sources: [ {src: '/video/'+data[i], type: 'video/mp4'}]});
+      }
+      player.playlist(lista);
+      player.playlistUi();
+      });
